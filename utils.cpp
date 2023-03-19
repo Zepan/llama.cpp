@@ -65,6 +65,8 @@ bool gpt_params_parse(int argc, char ** argv, gpt_params & params) {
             params.model = argv[++i];
         } else if (arg == "-i" || arg == "--interactive") {
             params.interactive = true;
+        } else if (arg == "-l" || arg == "--lowmem") {
+            params.lowmem = true;
         } else if (arg == "--interactive-start") {
             params.interactive = true;
             params.interactive_start = true;
@@ -91,6 +93,7 @@ void gpt_print_usage(int argc, char ** argv, const gpt_params & params) {
     fprintf(stderr, "options:\n");
     fprintf(stderr, "  -h, --help            show this help message and exit\n");
     fprintf(stderr, "  -i, --interactive     run in interactive mode\n");
+    fprintf(stderr, "  -l, --lowmem          use mmap, save memory for low memory device\n");
     fprintf(stderr, "  --interactive-start   run in interactive mode and poll user input at startup\n");
     fprintf(stderr, "  -r PROMPT, --reverse-prompt PROMPT\n");
     fprintf(stderr, "                        in interactive mode, poll user input upon seeing PROMPT\n");

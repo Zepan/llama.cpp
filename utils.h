@@ -34,6 +34,8 @@ struct gpt_params {
 
     bool interactive = false; // interactive mode
     bool interactive_start = false; // reverse prompt immediately
+
+    bool lowmem = false; //use mmap for low memory device
     std::string antiprompt = ""; // string upon seeing which more user input is prompted
 };
 
